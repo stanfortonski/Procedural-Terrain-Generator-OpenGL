@@ -29,6 +29,6 @@ Water is a simple plane without tessellation. The water is using dudv map for re
 ```
 
 ### Requirements:
-- Efficient Graphics card that support OpenGL 4.1
+- Efficient graphics card that support OpenGL 4.1
 - Graphics card drivers
 - System Windows
