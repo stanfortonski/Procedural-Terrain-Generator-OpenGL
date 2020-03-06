@@ -28,6 +28,8 @@ Water is a simple plane without tessellation. The water is using dudv map for re
   - - decrease height level
 ```
 
+**Package includes exe file and dll files.**
+
 ### Requirements:
 - Efficient graphics card that support OpenGL 4.1
 - Graphics card drivers
