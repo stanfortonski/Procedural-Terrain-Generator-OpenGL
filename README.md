@@ -34,3 +34,5 @@ Water is a simple plane without tessellation. The water is using dudv map for re
 - Efficient graphics card that support OpenGL 4.1
 - Graphics card drivers
 - System Windows
+
+Tested on RX 480 and GTX 650 ti.
