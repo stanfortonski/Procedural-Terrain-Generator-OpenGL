@@ -1,6 +1,8 @@
 # Procedural-Terrain-Generator-OpenGL
 ### Procedural Terrain Generator With Tessellation OpenGL 4.1 | C++
 
+![Terrain with water relfection](screenshots/terrain2.jpg)
+
 ### How it work?
 **Terrain:**
 For creating realistic surface I choosed Perlin Noise or simply noise method to generate heightmap. Heightmap is stored in 2D texture. The same data which we generate is used for convert heightmap to normalmap. That process is achieved by using Sobel Operator and normalize texture data. By the way it is easy to generated normal in shaders but that is expensive for efficient of our gpu. CPU do that faster and once, so for me better. And again we have to pass normalmap to graphic card memory as 2D texure. So now we have two textures. We can pass textures to shaders and use as samplers. Heightmap is used to increase y-axis in tesselation evaluation shader and normalmap is used to calculate the normal of surface to make proper light. OpenGL 4.0 provide us tesselation feature. With Tessellation it is easy to create terrain with dynamic level of detail. Distance between surface and camera can be used for evaluation the LOD. So if we're farther from the surface it will be rendered faster. Answer is short: tessellation is also in use in this project.
@@ -28,7 +30,7 @@ Water is a simple plane without tessellation. The water is using dudv map for re
   - - decrease height level
 ```
 
-**Package includes exe file and dll files.**
+**Package includes exe file compiled in Windows 10 MinGW G++ and dll files.**
 
 ### Requirements:
 - Efficient graphics card that support OpenGL 4.1
@@ -36,3 +38,16 @@ Water is a simple plane without tessellation. The water is using dudv map for re
 - System Windows
 
 Tested on RX 480 and GTX 650 ti.
+
+### Screenshots:
+![Terrain ss 1](screenshots/terrain1.jpg)
+![Terrain ss 3](screenshots/terrain3.jpg)
+![Terrain ss 4](screenshots/terrain4.jpg)
+![Terrain ss 5](screenshots/terrain5.jpg)
+![Terrain ss 6](screenshots/terrain6.jpg)
+![Terrain ss 7](screenshots/terrain7.jpg)
+![Terrain ss 8](screenshots/terrain8.jpg)
+![Water first ss](screenshots/water1.jpg)
+![Water last ss](screenshots/water2.jpg)
+
+
