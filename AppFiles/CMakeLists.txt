@@ -7,6 +7,9 @@ include_directories(include)
 link_directories(${CMAKE_SOURCE_DIR}/lib)
 include_directories(${CMAKE_BINARY_DIR}/include)
 
+INCLUDE(CMakeForceCompiler)
+CMAKE_FORCE_CXX_COMPILER(g++ GNU)
+
 set(ENGINE_NAME engine)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -30,8 +33,12 @@ include_directories(
 	"${CMAKE_SOURCE_DIR}/include"
 )
 
+#make stb_image lib
+add_library(stb_image ${CMAKE_SOURCE_DIR}/../../src/stb_image.cpp)
+set(LIBS ${LIBS} stb_image)
+
 #make engine lib
-file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/engine/*.cpp)
+file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/../../src/engine/*.cpp)
 add_library(${ENGINE_NAME} ${SOURCES})
 
 set(LIBS ${LIBS} ${FREETYPE_LIBRARIES})
@@ -39,7 +46,7 @@ target_link_libraries(${ENGINE_NAME} ${LIBS})
 target_include_directories(${ENGINE_NAME} PRIVATE ${FREETYPE_INCLUDE_DIRS})
 
 #make exe file
-file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/src/*.cpp)
+file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/../src/*.cpp)
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 target_link_libraries(
