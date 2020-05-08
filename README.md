@@ -10,7 +10,7 @@ For creating realistic surface I choosed Perlin Noise or simply noise method to 
 **Water:**
 Water is a simple plane without tessellation. The water is using dudv map for realistic movement the water and normalmap to calculate light. Water include reflections and refraction for good visual effect. The reflection on the water are created by bind the custom framebuffer and render the scene, but before we have to set the camer under the water. This method allow us to save actual scene to the texture instead straight to the screen something like post processing but we pass that to the water surface not to the screen space. The refraction are creating in the same way but the clip distance is different for each step but camera must be above the water level. For reflections we are rendering scene above the water and for the refraction all what is bellow the water. In the end all of textures are mixing in fragment shader and creating realistic calm water. This method force rendering the scene three times and once the water.
 
-**This application is based on [my 3D Engine](https://github.com/stanfortonski/3D-Engine-OpenGL-4). Compilation this app required engine files which We have to download and collect in engine folder.**
+**This application is based on [my own Engine 3D](https://github.com/stanfortonski/3D-Engine-OpenGL-4).**
 
 ### Control/Input:
 ```
