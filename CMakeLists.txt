@@ -7,16 +7,14 @@ include_directories(include)
 link_directories(${CMAKE_SOURCE_DIR}/lib)
 include_directories(${CMAKE_BINARY_DIR}/include)
 
-INCLUDE(CMakeForceCompiler)
-CMAKE_FORCE_CXX_COMPILER(g++ GNU)
-
+add_compile_options(-m64)
 set(ENGINE_NAME engine)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_CXX_FLAGS "-O4")
 set(BUILD_SHARED_LIBS True)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../build)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../build)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build)
 set(CMAKE_BUILD_TYPE Release)
 
 find_package(OpenGL REQUIRED)
@@ -26,7 +24,7 @@ find_package(GLFW3 REQUIRED)
 find_package(ASSIMP REQUIRED)
 find_package(Freetype REQUIRED)
 
-set(LIBS glfw3 gdi32 opengl32 glew32 assimp zlibstatic)
+set(LIBS glfw gdi32 opengl32 glew32 assimp zlibstatic)
 
 include_directories(
 	"${CMAKE_SOURCE_DIR}/src"
@@ -34,11 +32,11 @@ include_directories(
 )
 
 #make stb_image lib
-add_library(stb_image ${CMAKE_SOURCE_DIR}/../../src/stb_image.cpp)
+add_library(stb_image ${CMAKE_SOURCE_DIR}/src/stb_image.cpp)
 set(LIBS ${LIBS} stb_image)
 
 #make engine lib
-file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/../../src/engine/*.cpp)
+file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/src/engine/*.cpp)
 add_library(${ENGINE_NAME} ${SOURCES})
 
 set(LIBS ${LIBS} ${FREETYPE_LIBRARIES})
@@ -46,7 +44,7 @@ target_link_libraries(${ENGINE_NAME} ${LIBS})
 target_include_directories(${ENGINE_NAME} PRIVATE ${FREETYPE_INCLUDE_DIRS})
 
 #make exe file
-file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/../src/*.cpp)
+file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/src/generator/*.cpp)
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 target_link_libraries(
