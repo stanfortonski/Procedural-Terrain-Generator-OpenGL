@@ -1,0 +1,15 @@
+{
+    "windowWidth": 3440,
+    "windowHeight": 1440,
+    "shadowSize": 2048,
+    "samples": 8,
+    "cameraPitch": 0,
+    "cameraYaw": -90,
+    "cameraSpeed": 7,
+    "cameraSensitivity": 0.1,
+    "cameraFov": 45,
+    "cameraFar": 1000,
+    "cameraNear": 0.05,
+    "shadowFar": 500,
+    "anisotropy": 8
+}
