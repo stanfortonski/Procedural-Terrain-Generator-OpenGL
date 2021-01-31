@@ -5,7 +5,6 @@
 layout (location = 0) out vec4 fragColor;
 layout (location = 1) out vec4 brightColor;
 
-out vec4 fragColor;
 in vec4 clipSpace;
 in vec3 fragPos;
 in vec2 texCoords;

@@ -1,6 +1,6 @@
 {
-    "windowWidth": 3440,
-    "windowHeight": 1440,
+    "windowWidth": 1920,
+    "windowHeight": 1080,
     "shadowSize": 2048,
     "samples": 8,
     "cameraPitch": 0,
